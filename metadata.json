@@ -1,0 +1,5 @@
+{
+  "name": "Liberstatus Catholic Parish Manager",
+  "description": "An application for managing and visualizing statistics for Catholic parishes. It provides a hierarchical view of territories, from archdioceses down to individual families, and offers dashboards for sacraments, contributions, and demographics.",
+  "requestFramePermissions": []
+}

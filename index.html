@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liberstatus Parish Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        font-family: 'EB Garamond', serif;
+      }
+      .ticker-wrap {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        height: 3rem;
+        background-color: #005493; /* swiss-guard-blue */
+        padding: 0.75rem 0;
+        box-sizing: border-box;
+        z-index: 50;
+      }
+      .ticker-move {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        white-space: nowrap;
+        animation: ticker-scroll 150s linear infinite;
+      }
+      .ticker-item {
+        display: inline-block;
+        padding: 0 1.5rem;
+        color: #FFFFFF; /* vatican-white */
+        font-size: 0.875rem;
+      }
+      .ticker-item .date {
+        font-weight: 600;
+        color: #FFD700; /* vatican-gold */
+      }
+      .ticker-item .level {
+        font-style: italic;
+        color: #cccccc;
+        margin-left: 0.5rem;
+      }
+      @keyframes ticker-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .ticker-move:hover {
+        animation-play-state: paused;
+      }
+
+      /* New styles for the message ticker */
+      .message-ticker-wrap {
+        position: fixed;
+        bottom: 3rem; /* Position it above the event ticker */
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        height: 2.5rem;
+        background-color: #004a83; /* Lighter blue */
+        padding: 0;
+        box-sizing: border-box;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+      }
+      .message-ticker-move {
+        display: inline-block;
+        white-space: nowrap;
+        animation: message-ticker-scroll 40s linear infinite;
+      }
+      .message-ticker-item {
+        display: inline-block;
+        padding: 0 2rem;
+        color: #FFD700; /* vatican-gold */
+        font-size: 1.1rem;
+        font-style: italic;
+        font-weight: 500;
+      }
+      @keyframes message-ticker-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .message-ticker-move:hover {
+        animation-play-state: paused;
+      }
+    </style>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'vatican-gold': '#FFD700',
+            'vatican-white': '#FFFFFF',
+            'papal-red': '#B31917',
+            'swiss-guard-blue': '#005493',
+            'primary': { // Keep primary for component fallbacks, but override with new theme
+              '50': '#eff6ff', '100': '#dbeafe', '200': '#bfdbfe',
+              '300': '#93c5fd', '400': '#60a5fa', '500': '#3b82f6',
+              '600': '#2563eb', '700': '#1d4ed8', '800': '#1e40af',
+              '900': '#1e3a8a', '950': '#172554',
+            },
+          },
+          fontFamily: {
+            serif: ['EB Garamond', 'serif'],
+          }
+        }
+      }
+    }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.4",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-i18next": "https://aistudiocdn.com/react-i18next@^15.0.1",
+    "chart.js/": "https://aistudiocdn.com/chart.js@^4.5.1/",
+    "i18next": "https://aistudiocdn.com/i18next@^25.6.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-serif">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
